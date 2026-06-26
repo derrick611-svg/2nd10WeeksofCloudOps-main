@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: us-central1-docker.pkg.dev/playground-s-11-0d817a7e/fullstack/frontend:2a21106ff0b0c5ce3cd7c7ca833ad1bd61b66dd0
+        image: us-central1-docker.pkg.dev/playground-s-11-0d817a7e/fullstack/frontend:82270a1183484d404f0f4fe1dcda066901a093de
         ports:
         - containerPort: 80
       #  env:   # <-- Fixed indentation
