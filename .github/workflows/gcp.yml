@@ -91,8 +91,8 @@ jobs:
           FRONTEND_IMAGE=${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/frontend:${{ github.sha }}
           BACKEND_IMAGE=${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/backend:${{ github.sha }}
 
-          sed -i "s|image:.*|image: ${FRONTEND_IMAGE}|g" manifests/frontend/deployment.yaml
-          sed -i "s|image:.*|image: ${BACKEND_IMAGE}|g" manifests/backend/deployment.yaml
+          sed -i "s|image:.*|image: ${FRONTEND_IMAGE}|g" kubernetes-files/frontend-deployment.yml
+          sed -i "s|image:.*|image: ${BACKEND_IMAGE}|g" kubernetes-files/backend-deployment.yml
 
       ####################################################
       # Commit Updated YAMLs
@@ -103,8 +103,8 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          git add manifests/frontend/deployment.yaml
-          git add manifests/backend/deployment.yaml
+          git add kubernetes-files/frontend-deployment.yml
+          git add kubernetes-files/backend-deployment.yml
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
